@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121321" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <meta name="color-scheme" content="dark light">
     <title>Cardify | Next-Gen Card Experience</title>
+    <!-- EmailJS Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/auth.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Animated Background -->
     <div class="animated-bg">
@@ -41,8 +49,14 @@
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="nav-actions">
-                    <div class="theme-toggle">
-                        <i class="fas fa-moon"></i>
+                    <div class="theme-toggle" id="theme-toggle">
+                        <div class="toggle-track">
+                            <div class="toggle-thumb">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                        </div>
+                        <span class="toggle-label">Dark Mode</span>
                     </div>
                     <button class="btn btn-outline">Login</button>
                     <button class="btn btn-primary btn-glow">Sign Up</button>
@@ -67,7 +81,8 @@
                     <span class="title-gradient">Elevate Your</span>
                     <span class="title-gradient">Financial Game</span>
                 </h1>
-                <p class="hero-subtitle">Experience the future of banking with our gamified card system. Earn points, unlock achievements, and level up your financial life.</p>
+                <p class="hero-subtitle">Experience the future of banking with our gamified card system. Earn points,
+                    unlock achievements, and level up your financial life.</p>
                 <div class="hero-actions">
                     <button class="btn btn-primary btn-large btn-glow">
                         <span>Start Journey</span>
@@ -122,7 +137,8 @@
                                 </span>
                                 <div class="chip-container">
                                     <div class="chip-glow"></div>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/2331/2331965.png" alt="Chip" class="chip">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2331/2331965.png" alt="Chip"
+                                        class="chip">
                                 </div>
                             </header>
                             <div class="card-details">
@@ -130,7 +146,7 @@
                                     <h6>Card Number</h6>
                                     <h5 class="number">1105 5842 6598 5896</h5>
                                     <h5 class="name">Alex Johnson</h5>
-                                </div> 
+                                </div>
                                 <div class="valid-date">
                                     <h6>Valid Thru</h6>
                                     <h5>05/28</h5>
@@ -301,7 +317,9 @@
                 <div class="about-text" data-aos="fade-right">
                     <div class="section-badge">ABOUT US</div>
                     <h2>Redefining Finance Through Gamification</h2>
-                    <p>We believe managing finances should be as engaging as your favorite game. Cardify combines cutting-edge technology with game mechanics to create the most enjoyable financial experience.</p>
+                    <p>We believe managing finances should be as engaging as your favorite game. Cardify combines
+                        cutting-edge technology with game mechanics to create the most enjoyable financial experience.
+                    </p>
                     <div class="about-stats">
                         <div class="about-stat">
                             <h3>2018</h3>
@@ -385,20 +403,20 @@
                     </div>
                 </div>
                 <div class="contact-form" data-aos="fade-left">
-                    <form class="gamified-form">
+                    <form class="gamified-form" id="contact-form">
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="Enter your name" required>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="Enter your email" required>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" placeholder="Tell us about your financial goals..." rows="5" required></textarea>
+                            <textarea id="message" name="message" placeholder="Tell us about your financial goals..." rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-glow btn-large">
+                        <button type="submit" class="btn btn-primary btn-glow btn-large" id="contact-submit">
                             <span>Send Message</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -469,9 +487,7 @@
         </div>
     </footer>
 
-
-
-        <!-- Login Modal -->
+    <!-- Login Modal -->
     <div class="modal" id="login-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -673,9 +689,26 @@
         </div>
     </div>
 
+    <!-- Contact Success Modal -->
+    <div class="modal" id="contact-success-modal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Message Sent!</h2>
+            <p>Thank you for reaching out! We'll get back to you within 24 hours.</p>
+            <button class="btn btn-primary btn-large btn-full close-contact-success">
+                Continue Exploring
+            </button>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/email-handler.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
