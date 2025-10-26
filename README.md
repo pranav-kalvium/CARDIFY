@@ -174,7 +174,7 @@ GitHub Pages
 
 Traditional Hosting – Upload via FTP
 
-Build for Production
+Build for Productions
 
 No build process required. Simply upload all files to your hosting provider.
 
