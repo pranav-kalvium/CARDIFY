@@ -10,7 +10,7 @@ It’s built with pure HTML, CSS, and JavaScript — no heavy frameworks — and
 
 ### ✨ Core Features
 - **Responsive Design** – Perfectly adapts to all screen sizes (mobile, tablet, desktop)
-- **Glass Morphism UI** – Elegant frosted-glass interface with modern gradients
+- **Glass Morphism UI** – Elegant frosted-glass interface with modern gradients.
 - **Smooth Animations** – Subtle transitions and micro-interactions
 - **Contact Form Integration** – Seamless communication powered by [EmailJS](https://www.emailjs.com)
 - **Product Comparison** – Interactive feature comparison section
