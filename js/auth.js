@@ -1,4 +1,4 @@
-// Authentication Modal System
+// Authentication Modal Systems
 class AuthSystem {
     constructor() {
         this.currentModal = null;
